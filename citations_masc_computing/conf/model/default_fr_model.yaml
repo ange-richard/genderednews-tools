@@ -1,0 +1,12 @@
+# @package _global_
+
+model_name_or_path: 'moussaKam/barthez'
+config_name: 'moussaKam/barthez'
+tokenizer_name: 'moussaKam/barthez'
+cache_dir:
+use_fast_tokenizer: True
+
+model_revision: 'main'
+use_auth_token: False
+finetune: False
+config:

@@ -1,0 +1,19 @@
+# @package _global_
+num_workers: 8
+preprocessing_num_workers:
+text_column: 'text'
+id_column: 'id'
+
+# Replace with absolute path
+dataset_name: '../../dataset_builders/rcv2.py'
+
+overwrite_cache: False
+max_source_length: 512
+max_target_length: 1024
+val_max_target_length: 1024
+pad_to_max_length: True
+num_beams:
+eval_beams: 3
+source_prefix:
+
+build_data_for_mREBEL: False

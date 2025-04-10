@@ -27,7 +27,7 @@ Double-check that the `pytorch-lightning` installation has not overriden any oth
 
 ### Prepare the repository
 
-1. Download our citations extraction model on [Zenodo]() and place it in `src/checkpoint/`
+1. Download our citations extraction model on [Zenodo](https://doi.org/10.5281/zenodo.15189896) and place it in `src/checkpoint/`
 2. Place your data in `data/`
 3. Change inference file, output file and checkpoint path variables with the corresponding absolute paths in [conf/root_infer.yaml](conf/root_infer.yaml)
 

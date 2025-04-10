@@ -18,8 +18,8 @@ For simplicity, we advise to create a separate environment for each tool. See re
 
 ## License
 
-This project is licensed under the [GNU Affero General Public License v3.0](LICENSE.md)
-License - see the [LICENSE.md](LICENSE.md) file for
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE)
+License - see the [LICENSE](LICENSE) file for
 details
 
 ## Acknowledgments

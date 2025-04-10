@@ -29,7 +29,7 @@ Double-check that the `pytorch-lightning` installation has not overriden any oth
 
 1. Download our citations extraction model on [Zenodo]() and place it in `src/checkpoint/`
 2. Place your data in `data/`
-3. Change inference file, output file and checkpoint path variables with the corresponding absolute paths in `[conf/root_infer.yaml](conf/root_infer.yaml)`
+3. Change inference file, output file and checkpoint path variables with the corresponding absolute paths in [conf/root_infer.yaml](conf/root_infer.yaml)
 
 ## Usage
 
@@ -39,7 +39,7 @@ Below is the detailed usage of the pipeline of quotation extraction and genderiz
 
 1. Modify the preprocessing script for your own data
 
-    The `[preprocessing/data_to_rebel.py](preprocessing/data_to_rebel.py)` is a template to transform your data into the desired REBEL input format. Please modify the script to read your input data in the dedicated spot in the script. Minimal required fields are `id` and `text`.
+    The [preprocessing/data_to_rebel.py](preprocessing/data_to_rebel.py) is a template to transform your data into the desired REBEL input format. Please modify the script to read your input data in the dedicated spot in the script. Minimal required fields are `id` and `text`.
 2. Format your data into the desired input for the model
 ```shell
     cd postprocesing/

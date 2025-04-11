@@ -42,11 +42,12 @@ Below is the detailed usage of the pipeline of quotation extraction and genderiz
     The [preprocessing/data_to_rebel.py](preprocessing/data_to_rebel.py) is a template to transform your data into the desired REBEL input format. Please modify the script to read your input data in the dedicated spot in the script. Minimal required fields are `id` and `text`.
 2. Format your data into the desired input for the model
 ```shell
-    cd postprocesing/
+    cd preprocessing/
     python data_to_rebel.py ../data/[yourdata.jsonl] ../data/[yourdata_REBELformat].jsonl
 ```
 3. Split the data entries so they all fit into the allowed 512-tokens length input
 ```shell
+cd ..
 cd src/utils/
 python dataset_utils.py --input-dir ../data/[yourdata_REBELformat].jsonl --output-dir ../data/ [--output-file yourdata_REBELformat_512cuts.jsonl]
 ```
@@ -55,6 +56,8 @@ This script splits the entries longer than 512 tokens into several entries by cu
 ### Run prediction
 
 ```shell
+cd..
+cd..
     python src/predict.py
 ```
 

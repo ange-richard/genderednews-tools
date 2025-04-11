@@ -24,6 +24,8 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.utils.dataset_utils import load_jsonl_dataset
 
+#Or if you changed the path in utilities.py, change the code with from utils.dataset_utils import load_jsonl_dataset
+
 
 _DESCRIPTION = """RCV2 is a dataset created for the paper """""
 

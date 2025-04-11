@@ -1,4 +1,4 @@
-""" This script can be used to take as input a data file (of your chosen format)
+""" This script can be used to take as input a data file (csv or jsonl)
 and output a .jsonl file formatted for prediction by REBEL pipeline
 TODO: you need to change lines 11 to 18 to read your own file in a pandas dataframe
 """

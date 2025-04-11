@@ -56,6 +56,8 @@ This script splits the entries longer than 512 tokens into several entries by cu
 ### Run prediction
 
 ```shell
+cd..
+cd..
     python src/predict.py
 ```
 

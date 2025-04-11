@@ -47,6 +47,7 @@ Below is the detailed usage of the pipeline of quotation extraction and genderiz
 ```
 3. Split the data entries so they all fit into the allowed 512-tokens length input
 ```shell
+cd ..
 cd src/utils/
 python dataset_utils.py --input-dir ../data/[yourdata_REBELformat].jsonl --output-dir ../data/ [--output-file yourdata_REBELformat_512cuts.jsonl]
 ```

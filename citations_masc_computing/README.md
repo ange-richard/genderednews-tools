@@ -42,12 +42,12 @@ Below is the detailed usage of the pipeline of quotation extraction and genderiz
     The [preprocessing/data_to_rebel.py](preprocessing/data_to_rebel.py) is a template to transform your data into the desired REBEL input format. Please modify the script to read your input data in the dedicated spot in the script. Minimal required fields are `id` and `text`.
 2. Format your data into the desired input for the model
 ```shell
-    cd postprocesing/
+    cd preprocessing/
     python data_to_rebel.py ../data/[yourdata.jsonl] ../data/[yourdata_REBELformat].jsonl
 ```
 3. Split the data entries so they all fit into the allowed 512-tokens length input
 ```shell
-cd src/utils/
+cd ../src/utils/
 python dataset_utils.py --input-dir ../data/[yourdata_REBELformat].jsonl --output-dir ../data/ [--output-file yourdata_REBELformat_512cuts.jsonl]
 ```
 This script splits the entries longer than 512 tokens into several entries by cutting at the newline or punctuation mark closest to the 512 tokens mark. Default output file name is `[yourdata_REBELformat]_extended_dataset.jsonl`.
@@ -55,7 +55,7 @@ This script splits the entries longer than 512 tokens into several entries by cu
 ### Run prediction
 
 ```shell
-    python src/predict.py
+    python ../predict.py
 ```
 
 Default is `cpu` use. You can change to `gpu` by passing it to the `accelerator` argument of the `Trainer`.
@@ -68,7 +68,7 @@ Postprocessing step will allow you to:
 - Optional: Genderize the quote speakers
 
 ```shell
-cd postprocesing/
+cd ../postprocessing/
 python genderize_and_aggregate.py ../data/[prediction_output_filename].jsonl ../data/[yourdata_REBELformat]_extended_dataset.jsonl [--add-gender]
 ```
 Please note that the two positional arguments are the predicted output filename and the file used as an input for prediction (your data after split on 512 tokens)

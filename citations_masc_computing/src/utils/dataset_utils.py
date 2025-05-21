@@ -108,6 +108,7 @@ def split_docs_to_tok_len_and_save_for_prediction(
         'Babelscape/rebel-large')  # we use rebel's (i.e. BART) tokenizer to compute where to make the cuts since in BARThez the newline token is not defined
 
     def tokenize(example):
+        print(example)
         return tokenizer(
             example['text'],
             max_length=max_tok_len,
@@ -150,7 +151,11 @@ def split_docs_to_tok_len_and_save_for_prediction(
 
             assert last_newline_tok_idx, f"No newline nor full stop in example {example['id']}"
             # TODO: fix problem! when last newline char is ". -> is cut in two in extended dataset.
-            last_newline_char_idx = offsets[last_newline_tok_idx][0]  # offsets end bounds are non-inclusive
+
+            if input_id == quote_stop_id:
+                last_newline_char_idx = offsets[last_newline_tok_idx][0]+1
+            else:
+                last_newline_char_idx = offsets[last_newline_tok_idx][0]  # offsets end bounds are non-inclusive
             char_breaks.append(last_newline_char_idx)
 
             ids = ids[last_newline_tok_idx + 1:]
@@ -163,9 +168,9 @@ def split_docs_to_tok_len_and_save_for_prediction(
                 cut_char_spans.append([0, c + 1])  # make end bound non-inclusive
             else:
                 next_start_char_idx = cut_char_spans[-1][1]
-                next_end_char_idx = next_start_char_idx + c
+                next_end_char_idx = c + 1
+                #next_end_char_idx = next_start_char_idx + c
                 cut_char_spans.append([next_start_char_idx, next_end_char_idx])
-
         return cut_char_spans
 
     # actual processing starts here

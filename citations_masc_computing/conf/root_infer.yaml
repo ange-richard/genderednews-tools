@@ -5,8 +5,8 @@ defaults:
 seed: 41
 
 # Replace with absolute path to the file with data to run predicton on. Jsonl required.
-inference_file: '/home/getalp/richarag/genderednews-tools/citations_masc_computing/data/test_REBELformat_extended_dataset.jsonl'
-output_file: "/home/getalp/richarag/genderednews-tools/citations_masc_computing/data/prediction_test.jsonl"
+inference_file: '[/path/to/root/]genderednews-tools/citations_masc_computing/data/[your-data]_extended_dataset.jsonl'
+output_file: "[/path/to/root/]genderednews-tools/citations_masc_computing/data/prediction_test.jsonl"
 
 # parameters that originally came from the train.yaml
 run_name: "prediction"
@@ -18,7 +18,7 @@ do_train: False
 do_eval: False
 do_predict: True
 # Replace with absolute path
-checkpoint_path: '/home/getalp/richarag/genderednews-tools/citations_masc_computing/src/checkpoint/epoch=13-step=2548.ckpt'
+checkpoint_path: '[/path/to/root/]genderednews-tools/citations_masc_computing/src/checkpoint/epoch=13-step=2548.ckpt'
 label_smoothing: 0.0
 
 samples_interval: 1

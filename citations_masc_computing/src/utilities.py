@@ -9,8 +9,8 @@ from torch.nn.parameter import Parameter
 from datasets import Dataset
 from transformers import AutoTokenizer
 
-#import os, sys
-#sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dataset_builders import rcv2 as rcv2_dataset
 from utils import dataset_utils
 

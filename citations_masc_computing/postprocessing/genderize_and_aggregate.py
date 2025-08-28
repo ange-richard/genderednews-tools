@@ -84,7 +84,7 @@ def merge_by_quote(predictions, add_gender):
 
 def get_citmasc(w,m):
     try:
-        return m / w if (m+w) > 0 else None
+        return m / (w+m) if (m+w) > 0 else None
     except ZeroDivisionError:
         return 1
     except (KeyError, TypeError):

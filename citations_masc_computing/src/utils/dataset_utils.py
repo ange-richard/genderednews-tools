@@ -108,7 +108,7 @@ def split_docs_to_tok_len_and_save_for_prediction(
         'Babelscape/rebel-large')  # we use rebel's (i.e. BART) tokenizer to compute where to make the cuts since in BARThez the newline token is not defined
 
     def tokenize(example):
-        print(example)
+        # print(example)
         return tokenizer(
             example['text'],
             max_length=max_tok_len,
@@ -200,8 +200,7 @@ def split_docs_to_tok_len_and_save_for_prediction(
                     extended_ids.append(example["id"])
             except AssertionError:
                 no_endpunct_counter += 1
-                logger.info(f"Skipping example {example['id']}.")
-
+                print(f"Skipping example {example['id']}.")
     # remove unnecessary keys from tokenization and save
     keys_to_keep = ['id', 'text']
     extended_dataset = [{k: item[k] for k in keys_to_keep} for item in extended_dataset]

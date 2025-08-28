@@ -140,8 +140,8 @@ def check_job(speaker):
     job_gender = None
     det_jobs_neutral = ["secrétaire", "porte-parole", "ministre", "député","responsable","diplomate","commissaire","analyste"]
     det_jobs_m = r"|".join(
-        ["correspondant","chef"]+det_jobs_neutral)
-    det_jobs_f = r"|".join(["correspondante","cheffe"]+det_jobs_neutral)
+        ["correspondant","chef","expert"]+det_jobs_neutral)
+    det_jobs_f = r"|".join(["correspondante","cheffe","experte"]+det_jobs_neutral)
     if re.search(re.compile(f"\\b(un|le|ce(t?))\\b ({det_jobs_m})"), speaker.lower()) is not None:
         return 1
     elif re.search(re.compile(f"\\b(une|la|cette)\\b ({det_jobs_f})"), speaker.lower()) is not None:

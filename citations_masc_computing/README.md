@@ -22,7 +22,7 @@ Be aware that the REBEL framework needs a specific `python` version (<3.11) and 
 ```
 Double-check that the `pytorch-lightning` installation has not overridden any other installed libraries such as `torch`. If necessary, install back the right versions individually as such:
 ```shell
-    pip install torch==1.11wathevs
+    pip install torch==1.11.0
 ```
 
 ### Prepare the repository
@@ -55,7 +55,8 @@ This script splits the entries longer than 512 tokens into several entries by cu
 ### Run prediction
 
 ```shell
-    python ../predict.py
+  cd ../
+  python predict.py
 ```
 
 Default is `cpu` use. You can change to `gpu` by passing it to the `accelerator` argument of the `Trainer`.

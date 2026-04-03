@@ -94,21 +94,22 @@ def check_ner(speaker):
         speaker = remove_titles(candidate_speaker)
         try:
             prenom = speaker.split()[0]
-            #Genderize method
-            g = check_genderize_cache(prenom)
-            if g[0] is not None:
-                gen = g[0]
-                if gen == "male" and float(g[1]) >= 0.7:
-                    return 1
-                elif gen == "female" and float(g[1]) >= 0.7:
-                    return 0
-                elif float(g[1]) < 0.7:
-                    return 0.5
-            else:
-                try:
-                    gender_score_name = names_df.loc[(names_df["preusuel"]==prenom.lower()),"sexratio_prenom"].values[0]
-                    return float(gender_score_name.replace(",","."))
-                except (KeyError, IndexError):
+            try:
+                # INSEE database method
+                gender_score_name = names_df.loc[(names_df["preusuel"]==prenom.lower()),"sexratio_prenom"].values[0]
+                return float(gender_score_name.replace(",","."))
+            except (KeyError, IndexError):
+                #Genderize method
+                g = check_genderize_cache(prenom)
+                if g[0] is not None:
+                    gen = g[0]
+                    if gen == "male" and float(g[1]) >= 0.7:
+                        return 1
+                    elif gen == "female" and float(g[1]) >= 0.7:
+                        return 0
+                    elif float(g[1]) < 0.7:
+                        return 0.5
+                else:
                     # Else: gender_guesser method
                     ner_gender = None
                     gender = d.get_gender(prenom)
